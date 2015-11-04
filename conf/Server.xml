@@ -8,7 +8,7 @@
 			<IPAddress>*</IPAddress>
 			<Port>8087</Port>
 			<!-- none, basic, digest-->
-			<AuthenticationMethod>digest</AuthenticationMethod>
+			<AuthenticationMethod>none</AuthenticationMethod>
 			<DiagnosticURLEnable>true</DiagnosticURLEnable>
 			<SSLConfig>
 				<Enable>false</Enable>
@@ -23,11 +23,13 @@
 			<IPWhiteList>127.0.0.1</IPWhiteList>
 			<IPBlackList></IPBlackList>
 			<EnableXMLFile>false</EnableXMLFile>
-			<DocumentationServerEnable>false</DocumentationServerEnable>
+			<DocumentationServerEnable>true</DocumentationServerEnable>
 			<DocumentationServerPort>8089</DocumentationServerPort>
 			<!-- none, basic, digest-->
-			<DocumentationServerAuthenticationMethod>digest</DocumentationServerAuthenticationMethod>
+			<DocumentationServerAuthenticationMethod>none</DocumentationServerAuthenticationMethod>
 			<Properties>
+				<Name>restUserHTTPHeaders</Name>
+    			<Value>Access-Control-Allow-Origin:*|Access-Control-Allow-Methods:OPTIONS,GET,PUT,DELETE,POST</Value>
 			</Properties>
 		</RESTInterface>
 		<CommandInterface>
@@ -81,7 +83,7 @@
 				<BaseClass></BaseClass>
 			</VHostListener>
 			-->
-		</VHostListeners> 
+		</VHostListeners>
 		<HandlerThreadPool>
 			<PoolSize>${com.wowza.wms.TuningAuto}</PoolSize>
 		</HandlerThreadPool>
@@ -92,13 +94,13 @@
 			<DatagramStartingPort>6970</DatagramStartingPort>
 			<DatagramPortSharing>false</DatagramPortSharing>
 		</RTP>
-		
+
 		<Manager>
 			<!-- Properties defined are used by the Manager -->
 			<Properties>
 			</Properties>
 		</Manager>
-		
+
 		<!-- Properties defined here will be added to the IServer.getProperties() collection -->
 		<Properties>
 		</Properties>

@@ -60,7 +60,7 @@
 					</HTTPProvider>
 				</HTTPProviders>
 			</HostPort>
-			
+
 			<!-- 443 with SSL -->
 			<!--
 			<HostPort>
@@ -112,7 +112,7 @@
 				</HTTPProviders>
 			</HostPort>
 			-->
-			
+
 			<!-- Admin HostPort -->
 			<HostPort>
 				<Name>Default Admin</Name>
@@ -167,15 +167,20 @@
 						<AuthenticationMethod>admin-digest</AuthenticationMethod>
 					</HTTPProvider>
 					<HTTPProvider>
+						<BaseClass>okstudio.wowza.WebRTCHTTPProvider</BaseClass>
+						<RequestFilters>ice*</RequestFilters>
+						<AuthenticationMethod>none</AuthenticationMethod>
+					</HTTPProvider>
+					<HTTPProvider>
 						<BaseClass>com.wowza.wms.http.HTTPServerVersion</BaseClass>
 						<RequestFilters>*</RequestFilters>
 						<AuthenticationMethod>none</AuthenticationMethod>
 					</HTTPProvider>
 				</HTTPProviders>
 			</HostPort>
-		
+
 		</HostPortList>
-		
+
 		<HTTPStreamerAdapters>
 			<HTTPStreamerAdapter>
 				<ID>smoothstreaming</ID>
@@ -321,7 +326,7 @@
 			<MaximumSetBufferTime>60000</MaximumSetBufferTime>
 		</Application>
 		<StartStartupStreams>true</StartStartupStreams>
-		
+
 		<Manager>
 			<TestPlayer>
 				<IpAddress>${com.wowza.wms.HostPort.IpAddress}</IpAddress>
@@ -332,7 +337,7 @@
 			<Properties>
 			</Properties>
 		</Manager>
-		
+
 		<!-- Properties defined here will be added to the IVHost.getProperties() collection -->
 		<Properties>
 		</Properties>
